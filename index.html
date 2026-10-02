@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mon &amp; Ella · December 03, 2026</title>
+<meta name="description" content="Join Raymond &amp; Ella as they say I do — December 03, 2026 at Montvida Garden &amp; Events Place. #MonElleEverAfter">
+<meta name="theme-color" content="#5C1424">
+<meta property="og:title" content="Mon &amp; Ella · December 03, 2026">
+<meta property="og:description" content="We're getting married! #MonElleEverAfter">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --burgundy:#5C1424;
+    --burgundy-2:#7A1F33;
+    --burgundy-3:#9B3A4E;
+    --wine-tint:#F6ECEE;
+    --white:#FFFFFF;
+    --ivory:#FCF9F7;
+    --ink:#2B1419;
+    --muted:#7D6268;
+    --line:#E7D5D9;
+    --gold:#B89466;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --script:'Great Vibes', cursive;
+    --caps:'Cinzel', serif;
+    --sans:'Jost', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--serif);color:var(--ink);background:var(--ivory);font-size:18px;line-height:1.6;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ---------- Top bar & menu ---------- */
+  .topbar{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:calc(12px + env(safe-area-inset-top)) 18px 12px;transition:background .35s, box-shadow .35s}
+  .topbar.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+  .brand{font-family:var(--script);font-size:30px;line-height:1;color:var(--white);text-decoration:none;transition:color .35s}
+  .topbar.scrolled .brand{color:var(--burgundy)}
+  .menu-btn{width:44px;height:44px;border:0;background:transparent;display:grid;place-items:center;cursor:pointer}
+  .menu-btn span{display:block;width:24px;height:1.5px;background:var(--white);position:relative;transition:background .35s}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:24px;height:1.5px;background:inherit}
+  .menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
+  .topbar.scrolled .menu-btn span{background:var(--burgundy)}
+
+  .menu{position:fixed;inset:0;z-index:60;background:var(--burgundy);color:var(--white);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+  .menu.open{opacity:1;visibility:visible}
+  .menu a{font-family:var(--caps);letter-spacing:.22em;font-size:15px;text-decoration:none;padding:12px 20px}
+  .menu .close{position:absolute;top:calc(14px + env(safe-area-inset-top));right:18px;background:none;border:0;color:#fff;font-size:34px;line-height:1;cursor:pointer;width:44px;height:44px}
+  .menu .mtag{font-family:var(--script);font-size:40px;margin-bottom:18px}
+
+  /* ---------- Hero ---------- */
+  .hero{min-height:100svh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    color:var(--white);padding:110px 24px 70px;
+    background:
+      radial-gradient(120% 70% at 50% 0%, rgba(155,58,78,.55), transparent 60%),
+      radial-gradient(90% 60% at 50% 100%, rgba(30,4,10,.6), transparent 70%),
+      var(--burgundy);
+    overflow:hidden}
+  .eyebrow{font-family:var(--caps);font-size:12px;letter-spacing:.35em;text-transform:uppercase;opacity:.85}
+  .hero .names{font-family:var(--script);font-weight:400;font-size:clamp(64px,19vw,120px);line-height:.95;margin:22px 0 4px}
+  .hero .amp{display:block;font-family:var(--serif);font-style:italic;font-size:.42em;margin:6px 0 18px;color:#E9CFB0}
+  .hero .full{font-family:var(--caps);font-size:12px;letter-spacing:.24em;opacity:.8;margin-top:10px}
+  .hero .date{margin-top:28px;display:flex;align-items:center;gap:14px;font-family:var(--caps);letter-spacing:.2em;font-size:13px}
+  .hero .date b{font-family:var(--serif);font-weight:500;font-size:46px;letter-spacing:0;line-height:1}
+  .hero .date .rule{width:1px;height:46px;background:rgba(255,255,255,.4)}
+  .hero .venue{margin-top:18px;font-style:italic;font-size:18px;opacity:.9}
+  .hero .hashtag{margin-top:6px;font-family:var(--sans);font-weight:300;letter-spacing:.12em;font-size:13px;color:#E9CFB0}
+  .scroll-cue{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-family:var(--caps);font-size:10px;letter-spacing:.3em;opacity:.7;text-decoration:none}
+  .scroll-cue::after{content:"";display:block;width:1px;height:28px;background:#fff;margin:8px auto 0;animation:drip 2s ease-in-out infinite}
+  @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  .flourish{width:150px;height:auto;color:currentColor;opacity:.9}
+
+  /* ---------- Sections ---------- */
+  section{padding:76px 22px}
+  .wrap{max-width:640px;margin:0 auto}
+  .sec-head{text-align:center;margin-bottom:38px}
+  .sec-head .eyebrow{color:var(--burgundy-3)}
+  .sec-head h2{font-family:var(--script);font-weight:400;font-size:clamp(46px,13vw,64px);color:var(--burgundy);line-height:1.1;margin-top:6px}
+  .sec-head .flourish{margin:10px auto 0;color:var(--gold)}
+  .sec-head p{color:var(--muted);font-style:italic;margin-top:12px}
+  .alt{background:var(--white)}
+  .dark{background:var(--burgundy);color:var(--white)}
+  .dark .sec-head h2{color:var(--white)}
+  .dark .sec-head .eyebrow{color:#E9CFB0}
+  .dark .sec-head p{color:rgba(255,255,255,.8)}
+
+  /* Countdown */
+  .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:420px;margin:0 auto}
+  .cd{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);padding:16px 4px 12px;text-align:center}
+  .cd b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(30px,9vw,42px);line-height:1}
+  .cd small{display:block;font-family:var(--caps);font-size:9px;letter-spacing:.2em;margin-top:8px;opacity:.8}
+  .cd-done{text-align:center;font-family:var(--script);font-size:40px;display:none}
+  .verse{text-align:center;font-style:italic;font-size:19px;max-width:440px;margin:34px auto 0;opacity:.92}
+
+  /* Story */
+  .story{position:relative;padding-left:30px}
+  .story::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--line),var(--burgundy-3),var(--line))}
+  .chapter{position:relative;padding-bottom:34px}
+  .chapter:last-child{padding-bottom:0}
+  .chapter::before{content:"";position:absolute;left:-27px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--white);border:2px solid var(--burgundy)}
+  .chapter .when{font-family:var(--caps);font-size:11px;letter-spacing:.22em;color:var(--burgundy-3)}
+  .chapter h3{font-family:var(--serif);font-weight:600;font-size:26px;color:var(--burgundy);line-height:1.2;margin:4px 0 8px}
+  .chapter p{color:#4a3237}
+  .chapter.highlight::before{background:var(--burgundy);width:15px;height:15px;left:-29px;top:7px;box-shadow:0 0 0 4px var(--wine-tint)}
+
+  /* Venue */
+  .card{background:var(--white);border:1px solid var(--line);padding:30px 22px;text-align:center;position:relative}
+  .card + .card{margin-top:18px}
+  .card .tag{font-family:var(--caps);font-size:11px;letter-spacing:.28em;color:var(--burgundy-3)}
+  .card h3{font-family:var(--serif);font-weight:600;font-size:25px;color:var(--burgundy);line-height:1.25;margin:10px 0 4px}
+  .card .sub{font-style:italic;color:var(--muted)}
+  .card .time{font-family:var(--sans);font-weight:400;font-size:13px;letter-spacing:.14em;margin-top:12px;color:var(--ink)}
+  .icon{width:34px;height:34px;color:var(--burgundy);margin:0 auto 10px}
+  .map{margin-top:22px;border:1px solid var(--line);background:var(--white);padding:8px}
+  .map iframe{width:100%;height:260px;border:0;display:block;filter:saturate(.75)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 28px;font-family:var(--caps);
+    font-size:12px;letter-spacing:.22em;text-decoration:none;background:var(--burgundy);color:var(--white);border:1px solid var(--burgundy);
+    transition:background .25s,color .25s;cursor:pointer}
+  .btn:hover,.btn:focus-visible{background:var(--burgundy-2)}
+  .btn.ghost{background:transparent;color:var(--burgundy)}
+  .btn.ghost:hover{background:var(--burgundy);color:var(--white)}
+  .btn.light{background:var(--white);color:var(--burgundy);border-color:var(--white)}
+  .btn.light:hover{background:var(--wine-tint)}
+  .btn svg{width:16px;height:16px}
+  .center{text-align:center}
+  .mt{margin-top:22px}
+
+  /* Program */
+  .program{list-style:none;border-top:1px solid var(--line)}
+  .program li{display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--line)}
+  .program .t{font-family:var(--caps);font-size:13px;letter-spacing:.06em;color:var(--burgundy);white-space:nowrap}
+  .program .e{font-size:19px;line-height:1.35}
+  .program .e small{display:block;font-style:italic;color:var(--muted);font-size:15px}
+  .program li.key .e{font-weight:600;color:var(--burgundy)}
+
+  /* Entourage */
+  .ent-group{text-align:center;padding:24px 0;border-bottom:1px solid var(--line)}
+  .ent-group:last-child{border-bottom:0}
+  .ent-group h4{font-family:var(--caps);font-weight:500;font-size:12px;letter-spacing:.28em;color:var(--burgundy-3);margin-bottom:12px}
+  .ent-group p{font-size:19px;line-height:1.55}
+  .pairs{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:6px;font-size:18px;line-height:1.4}
+  .pairs .ch{font-family:var(--caps);font-size:10px;letter-spacing:.24em;color:var(--muted);padding-bottom:6px}
+  .pairs > div:nth-child(odd){text-align:right}
+  .pairs > div:nth-child(even){text-align:left}
+  .pairs .solo{grid-column:1 / -1;text-align:center !important;margin-top:8px}
+  .solo-note{display:block;font-style:italic;color:var(--muted);font-size:14px}
+  .ent-sub{font-family:var(--script);font-size:38px;color:var(--burgundy);text-align:center;margin:30px 0 4px}
+
+  /* Attire */
+  .palette{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+  .sw{text-align:center;font-family:var(--caps);font-size:9px;letter-spacing:.16em;color:var(--muted)}
+  .sw i{display:block;width:50px;height:50px;border-radius:50%;margin:0 auto 8px;border:1px solid rgba(0,0,0,.08);box-shadow:inset 0 0 0 4px rgba(255,255,255,.55)}
+  .attire{display:grid;gap:16px}
+  .att{background:var(--white);border:1px solid var(--line);padding:22px 20px}
+  .att h4{font-family:var(--caps);font-size:12px;letter-spacing:.26em;color:var(--burgundy);text-align:center;padding-bottom:14px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+  .att dl{display:grid;grid-template-columns:auto 1fr;gap:10px 16px;padding-top:8px}
+  .att dt{font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:4px;white-space:nowrap}
+  .att dd{font-size:18px;line-height:1.4}
+  .dots{display:inline-flex;gap:4px;vertical-align:middle;margin-left:4px}
+  .dots i{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+
+  /* Notes / Gift */
+  .note{border:1px solid var(--line);background:var(--white);padding:30px 24px;text-align:center}
+  .note p + p{margin-top:14px}
+  .note .sig{font-family:var(--script);font-size:34px;color:var(--burgundy);margin-top:14px}
+  .gift-icon{width:44px;height:44px;margin:0 auto 14px;color:var(--burgundy)}
+
+  /* RSVP */
+  .rsvp-card{border:1px solid rgba(255,255,255,.3);padding:34px 22px;text-align:center;position:relative}
+  .rsvp-card::before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.12);pointer-events:none}
+  .deadline{font-family:var(--caps);font-size:12px;letter-spacing:.22em;opacity:.85}
+  .deadline b{display:block;font-family:var(--serif);font-weight:500;font-size:30px;letter-spacing:0;margin-top:6px;opacity:1}
+  .noplus{margin:26px auto 0;padding:14px 12px;border-top:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);
+    font-family:var(--caps);font-weight:600;font-size:15px;letter-spacing:.2em;color:var(--white)}
+  .adults{margin-top:22px;font-style:italic;font-size:18px;opacity:.92}
+  .adults strong{font-style:normal;font-weight:600}
+
+  /* Hashtag */
+  .hash{font-family:var(--serif);font-weight:500;font-size:clamp(26px,8vw,38px);color:var(--burgundy);letter-spacing:.02em;word-break:break-word}
+  .copy{margin-top:16px}
+
+  footer{background:#3E0C17;color:rgba(255,255,255,.8);text-align:center;padding:46px 22px calc(36px + env(safe-area-inset-bottom))}
+  footer .fn{font-family:var(--script);font-size:46px;color:var(--white);line-height:1}
+  footer .fd{font-family:var(--caps);font-size:11px;letter-spacing:.3em;margin-top:10px}
+  footer .credit{margin-top:28px;font-family:var(--sans);font-size:12px;letter-spacing:.08em;opacity:.7}
+  footer .credit a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+
+  .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:#fff;
+    font-family:var(--sans);font-size:13px;padding:10px 18px;opacity:0;transition:.3s;z-index:80;pointer-events:none}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease, transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.scroll-cue::after{animation:none}html{scroll-behavior:auto}}
+
+  /* ---------- Larger screens ---------- */
+  @media (min-width:760px){
+    body{font-size:19px}
+    section{padding:100px 32px}
+    .venues{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card + .card{margin-top:0}
+    .attire{grid-template-columns:1fr 1fr}
+    .attire .att:first-child{grid-column:1 / -1}
+    .wrap.wide{max-width:820px}
+    .program li{grid-template-columns:110px 1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar" id="topbar">
+  <a href="#home" class="brand" aria-label="Mon and Ella">M &amp; E</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+</header>
+
+<nav class="menu" id="menu" aria-label="Site sections">
+  <button class="close" id="menuClose" aria-label="Close menu">&times;</button>
+  <div class="mtag">Mon &amp; Ella</div>
+  <a href="#story">Our Story</a>
+  <a href="#details">Details</a>
+  <a href="#program">Program</a>
+  <a href="#entourage">Entourage</a>
+  <a href="#attire">Attire</a>
+  <a href="#gifts">Gifts</a>
+  <a href="#rsvp">RSVP</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="eyebrow">Together with their families</div>
+  <h1 class="names">Mon<span class="amp">and</span>Ella</h1>
+  <div class="full">Raymond Abat &nbsp;·&nbsp; Ella Raguindin</div>
+  <div class="date">
+    <span>Thursday<br>December</span>
+    <span class="rule"></span>
+    <b>03</b>
+    <span class="rule"></span>
+    <span>2026<br>4:00 PM</span>
+  </div>
+  <a href="#countdown" class="scroll-cue">Scroll</a>
+</section>
+
+<!-- Countdown -->
+<section class="dark" id="countdown">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Save the date</div>
+      <h2>Countdown to Forever</h2>
+    </div>
+    <div class="countdown reveal" id="cd">
+      <div class="cd"><b id="cdD">00</b><small>Days</small></div>
+      <div class="cd"><b id="cdH">00</b><small>Hours</small></div>
+      <div class="cd"><b id="cdM">00</b><small>Minutes</small></div>
+      <div class="cd"><b id="cdS">00</b><small>Seconds</small></div>
+    </div>
+    <div class="cd-done" id="cdDone">Just married!</div>
+    <p class="verse reveal">“So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate.”<br><span style="font-family:var(--caps);font-style:normal;font-size:11px;letter-spacing:.22em;opacity:.75">Matthew 19:6</span></p>
+  </div>
+</section>
+
+<!-- Love story -->
+<section id="story" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">How it all began</div>
+      <h2>Our Love Story</h2>
+      <svg class="flourish" viewBox="0 0 200 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M2 12h70M128 12h70"/><path d="M100 4c-6 0-10 4-10 8s4 8 10 8 10-4 10-8-4-8-10-8z"/><circle cx="100" cy="12" r="2" fill="currentColor"/></svg>
+    </div>
+    <div class="story">
+      <article class="chapter reveal">
+        <div class="when">January 29, 2023</div>
+        <h3>First We Met</h3>
+        <p>They first met at Kaye's wedding, Ella's sister. During the celebration, Ella couldn't help but notice Mon glancing her way more than once. By the end of the evening, they finally struck up a conversation, and before the night was over, they had already planned a date for the next morning.</p>
+      </article>
+      <article class="chapter reveal">
+        <div class="when">January 30, 2023</div>
+        <h3>First Date</h3>
+        <p>Yes, it really happened that fast. What began as a simple plan quickly turned into something meaningful. From that very first date, there was an undeniable connection, and their story began to unfold.</p>
+      </article>
+      <article class="chapter reveal">
+        <div class="when">February 03, 2023</div>
+        <h3>In a Relationship</h3>
+        <p>Just six days after their first date, Mon asked Ella to be his. Though naturally shy, he didn't hesitate when it came to her, and that made the moment even more special.</p>
+      </article>
+      <article class="chapter highlight reveal">
+        <div class="when">March 09, 2026</div>
+        <h3>We're Engaged</h3>
+        <p>After three beautiful years together, Mon proposed during their first international trip. Ella had no idea it was coming, making the moment even more unforgettable and full of surprise.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Details -->
+<section id="details">
+  <div class="wrap wide">
+    <div class="sec-head reveal">
+      <div class="eyebrow">When &amp; where</div>
+      <h2>The Wedding</h2>
+      <p>Thursday, December 03, 2026</p>
+    </div>
+    <div class="venues">
+      <div class="card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4l2 3 2-3"/></svg>
+        <div class="tag">Ceremony</div>
+        <h3>Montvida Garden &amp; Events Place</h3>
+        <div class="sub">Garden 2</div>
+        <div class="time">4:00 PM</div>
+      </div>
+      <div class="card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 3h8l-1 7a3 3 0 01-6 0L8 3z"/><path d="M12 13v7M8.5 20h7"/></svg>
+        <div class="tag">Reception</div>
+        <h3>Montvida Garden &amp; Events Place</h3>
+        <div class="sub">Garden Reception</div>
+        <div class="time">6:15 PM</div>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe title="Map of Montvida Garden &amp; Events Place" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Montvida%20Garden%20%26%20Events%20Place&z=15&output=embed"></iframe>
+    </div>
+    <div class="center mt reveal">
+      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Montvida+Garden+%26+Events+Place">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        View on Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Program -->
+<section id="program" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Order of the day</div>
+      <h2>Timeline &amp; Program</h2>
+    </div>
+    <ol class="program reveal">
+      <li><span class="t">3:15 PM</span><span class="e">Gathering &amp; Entourage Procession</span></li>
+      <li class="key"><span class="t">4:00 PM</span><span class="e">Wedding Ceremony<small>Holy Eucharist &amp; Exchange of Vows</small></span></li>
+      <li><span class="t">5:00 PM</span><span class="e">Pica-Pica, Cocktail Hour &amp; Golden Hour Photos</span></li>
+      <li class="key"><span class="t">6:15 PM</span><span class="e">Start of Reception</span></li>
+      <li><span class="t">6:30 PM</span><span class="e">Bride &amp; Groom Entrance</span></li>
+      <li><span class="t">7:00 PM</span><span class="e">Dinner</span></li>
+      <li><span class="t">8:00 PM</span><span class="e">Program Starts</span></li>
+      <li><span class="t">9:30 PM</span><span class="e">Same-Day Edit</span></li>
+      <li class="key"><span class="t">10:00 PM</span><span class="e">Start of After Party</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Entourage -->
+<section id="entourage">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Standing beside us</div>
+      <h2>The Entourage</h2>
+    </div>
+
+    <div class="ent-group reveal">
+      <h4>Parents of the Groom</h4>
+      <p>Mr. Pedro Abat<br>Mrs. Rizalina Abat</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Mothers of the Bride</h4>
+      <p>Ms. Jane Soriano<br>Mrs. Patricia Soriano</p>
+    </div>
+
+    <div class="ent-group reveal">
+      <h4>Principal Sponsors</h4>
+      <div class="pairs">
+        <div class="ch">Ninong</div><div class="ch">Ninang</div>
+        <div>Mr. Joe Panotes</div><div>Mrs. France Panotes</div>
+        <div>Mr. Jose Sepria</div><div>Mrs. Cynthia Duran</div>
+        <div>Mr. Allan Soriano</div><div>Mrs. Josephine Ignacio</div>
+        <div>Mr. Charles Gould</div><div>Mrs. Josephine Gould</div>
+        <div>Mr. Sammy Rivera</div><div>Ms. Heather Go</div>
+        <div>Mr. Adolfo Ornillo</div><div>Mrs. Ligaya Domingo</div>
+        <div>Mr. Rommel Santiago</div><div>Mrs. Arlene Santiago</div>
+      </div>
+    </div>
+
+    <div class="ent-sub reveal">Secondary Sponsors</div>
+    <div class="ent-group reveal">
+      <h4>Candle</h4>
+      <p>Mr. Gian Patrick Ramos &amp; Ms. Mia Gonzalez</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Veil</h4>
+      <p>Mr. Dave Nethercott &amp; Mrs. Rizze Nethercott</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Cord</h4>
+      <p>Mr. Arjay Calderon &amp; Mrs. Roma Calderon</p>
+    </div>
+
+    <div class="ent-sub reveal">Wedding Party</div>
+    <div class="ent-group reveal">
+      <h4>Best Man</h4>
+      <p>Gilbert Domingo</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Matrons of Honor</h4>
+      <p>Mrs. Ezekiel Galindo<br>Mrs. Erika Mae Domingo</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Groomsmen &amp; Bridesmaids</h4>
+      <div class="pairs">
+        <div class="ch">Groomsmen</div><div class="ch">Bridesmaids</div>
+        <div>Aaron Soriano</div><div>Church Allyson</div>
+        <div>Dave Galvez</div><div>Elaiza Tan</div>
+        <div>Mi Rojas</div><div>Lea Soriano</div>
+        <div>Jhake Soriano</div><div>Jessa Clemente</div>
+        <div>Yuan Salanguit</div><div>Yohanne Salanguit</div>
+        <div class="solo">Kylie Arsigono</div>
+      </div>
+    </div>
+
+    <div class="ent-sub reveal">Little Ones</div>
+    <div class="ent-group reveal">
+      <h4>Ring Bearer</h4>
+      <p>Chris Yuel Nethercott</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Coin Bearer</h4>
+      <p>Syruz Soriano</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Banner Bearers</h4>
+      <p>Jared Nathaniel Luy<br>Mandy Eleijah</p>
+    </div>
+    <div class="ent-group reveal">
+      <h4>Flower Girls</h4>
+      <p>Avisha Bueno<br>Callie Cadiz<br>Chloe Cadiz<br>Astra Thalia Alina<br>Keia Galindo</p>
+    </div>
+  </div>
+</section>
+
+<!-- Attire -->
+<section id="attire" class="alt">
+  <div class="wrap wide">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Wedding palette</div>
+      <h2>Attire Guide</h2>
+      <p>We'd love for you to dress in our wedding colors.</p>
+    </div>
+    <div class="palette reveal">
+      <div class="sw"><i style="background:#6E1423"></i>Maroon</div>
+      <div class="sw"><i style="background:#EAD7B7"></i>Champagne</div>
+      <div class="sw"><i style="background:#C3AE8A"></i>Khaki</div>
+      <div class="sw"><i style="background:#FFFFFF"></i>White</div>
+      <div class="sw"><i style="background:#1B1B1B"></i>Black</div>
+    </div>
+    <div class="attire">
+      <div class="att reveal">
+        <h4>Guests</h4>
+        <dl>
+          <dt>Ladies</dt><dd>Maroon, Champagne<span class="dots"><i style="background:#6E1423"></i><i style="background:#EAD7B7"></i></span></dd>
+          <dt>Gentlemen</dt><dd>Black / Khaki Pants, Maroon / Khaki Tops</dd>
+        </dl>
+      </div>
+      <div class="att reveal">
+        <h4>Principal Sponsors</h4>
+        <dl>
+          <dt>Ninang</dt><dd>Champagne Long Gown / Formal Dress</dd>
+          <dt>Ninong</dt><dd>Khaki Pants / White Long Sleeves</dd>
+        </dl>
+      </div>
+      <div class="att reveal">
+        <h4>Secondary Sponsors</h4>
+        <dl>
+          <dt>Matrons</dt><dd>Maroon Long Gown</dd>
+          <dt>Bridesmaids</dt><dd>Maroon Long Gown</dd>
+          <dt>Best Man</dt><dd>Black / Khaki Pants, Maroon / Khaki Tops</dd>
+          <dt>Groomsmen</dt><dd>Black / Khaki Pants, Maroon / Khaki Tops</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gifts -->
+<section id="gifts">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">With gratitude</div>
+      <h2>Gift Guide</h2>
+    </div>
+    <div class="note reveal">
+      <svg class="gift-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5"/><path d="M2.5 9h19v-3h-19zM12 6v14.5"/><path d="M12 6c-1.5-3-5-3.5-5-1.2C7 6.4 9.7 6 12 6zM12 6c1.5-3 5-3.5 5-1.2C17 6.4 14.3 6 12 6z"/></svg>
+      <p>Having you celebrate with us is more than enough. If you'd like to give a gift, we would greatly appreciate a monetary contribution toward our future together. You can conveniently send your gift using the QR code below.</p>
+      <p><em>Thank you for being part of our journey!</em></p>
+      <div class="sig">Mon &amp; Ella</div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp" class="dark">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Kindly reply</div>
+      <h2>RSVP</h2>
+      <p>We have reserved a seat in your honor and would be delighted to celebrate with you.</p>
+    </div>
+    <div class="rsvp-card reveal">
+      <div class="deadline">Please respond on or before<b>November 15, 2026</b></div>
+      <div class="mt">
+        <a class="btn light" target="_blank" rel="noopener"
+           href="https://script.google.com/macros/s/AKfycbwbdl_us15yuC1hO3L2HiID23pKjwlFKAs9mxsBnmQ3x8BS8hYHkaQEkSHfdWQn1Qw/exec">RSVP Here</a>
+      </div>
+      <div class="noplus"><strong>STRICTLY NO PLUS ONE</strong></div>
+      <p class="adults">As much as we love your little kids and babies, this is an <strong>adults-only</strong> celebration, except for the little ones with roles in the entourage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Hashtag -->
+<section class="alt">
+  <div class="wrap center">
+    <div class="sec-head reveal" style="margin-bottom:18px">
+      <div class="eyebrow">Share the love</div>
+      <h2>Capture the Moment</h2>
+      <p>Tag your photos and videos with our wedding hashtag</p>
+    </div>
+    <div class="hash reveal">#MonElleEverAfter</div>
+    <div class="copy reveal"><button class="btn ghost" id="copyTag" type="button">Copy Hashtag</button></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fn">Mon &amp; Ella</div>
+  <div class="fd">12 · 03 · 2026</div>
+  <div class="credit">Website by <a href="https://tiktok.com/@loveanne.ph" target="_blank" rel="noopener">Love, Anne</a></div>
+</footer>
+
+<div class="toast" id="toast">Hashtag copied</div>
+
+<script>
+  // Sticky bar
+  const bar = document.getElementById('topbar');
+  const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Menu
+  const menu = document.getElementById('menu'), menuBtn = document.getElementById('menuBtn');
+  const setMenu = open => { menu.classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; };
+  menuBtn.addEventListener('click', () => setMenu(true));
+  document.getElementById('menuClose').addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  // Countdown — Dec 3, 2026, 4:00 PM Philippine time
+  const target = new Date('2026-12-03T16:00:00+08:00').getTime();
+  const pad = n => String(n).padStart(2, '0');
+  const els = ['cdD','cdH','cdM','cdS'].map(id => document.getElementById(id));
+  function tick(){
+    let diff = target - Date.now();
+    if (diff <= 0){ document.getElementById('cd').style.display='none'; document.getElementById('cdDone').style.display='block'; return; }
+    const d = Math.floor(diff/864e5); diff %= 864e5;
+    const h = Math.floor(diff/36e5); diff %= 36e5;
+    const m = Math.floor(diff/6e4); const s = Math.floor((diff%6e4)/1e3);
+    els[0].textContent = d; els[1].textContent = pad(h); els[2].textContent = pad(m); els[3].textContent = pad(s);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Reveal on scroll
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -30px 0px'}) : null;
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  // Copy hashtag
+  document.getElementById('copyTag').addEventListener('click', async () => {
+    const tag = '#MonElleEverAfter';
+    try { await navigator.clipboard.writeText(tag); }
+    catch(e){ const t=document.createElement('textarea'); t.value=tag; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+    const toast = document.getElementById('toast'); toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 1800);
+  });
+</script>
+</body>
+</html>
